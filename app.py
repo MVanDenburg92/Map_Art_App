@@ -214,7 +214,7 @@ def main():
         
         # Apply button for coordinate mode to explicitly update the map
         if not use_place:
-            col1_, col2_, col3_, col_4 = st.columns([9,8,8,8])
+            col1_, col2_, col3_, col_4 = st.columns([10,8,8,8])
             with col1_:
                 # st.button("👍")
                 if st.button("Apply Input Coordinates", key="apply_coords"):
@@ -229,9 +229,9 @@ def main():
                     # Update marker position and map center
                     st.session_state["marker_pos"] = {"lat": lat, "lng": lng}
                     st.session_state["map_center"] = [lat, lng]
-                    
-                    st.success(f"Coordinates updated to: ({lat:.5f}, {lng:.5f})")
                     st.rerun()
+                    st.info(f"Coordinates updated to: ({lat:.5f}, {lng:.5f})")
+
                 if not (-90 <= center_lat <= 90) or not (-180 <= center_lon <= 180):
                     st.error("Please enter valid latitude and longitude.")
                     return
@@ -259,9 +259,10 @@ def main():
                     
                     # Update map center to match marker position
                     st.session_state["map_center"] = [lat, lng]
-                    
-                    st.success(f"Map centered on marker position: ({lat:.5f}, {lng:.5f})")
+                    # st.success(f"Map centered on marker position: ({lat:.5f}, {lng:.5f})")
                     st.rerun()
+                    st.success(f"Map centered on marker position: ({lat:.5f}, {lng:.5f})")
+
         # Reset button
             with col_4:
                 if st.button("Reset Map to Boston", key="reset_button"):
@@ -322,13 +323,32 @@ def main():
             map_zoom = st.session_state["map_zoom"]
 
             # Create the folium map
-            m = folium.Map(location=map_center, zoom_start=map_zoom)
+            m = folium.Map(location=map_center, zoom_start=map_zoom, tiles = None)
+            folium.TileLayer('CartoDB positron').add_to(m)
+            folium.TileLayer('CartoDB dark_matter').add_to(m)
+            folium.TileLayer(
+                tiles='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+                attr='OpenTopoMap',
+                name='OpenTopoMap',
+                overlay=False,
+                control=True
+            ).add_to(m)
+            folium.TileLayer(
+            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+            attr='Esri',
+            name='Esri World Imagery',
+            overlay=False,
+            control=True
+        ).add_to(m)
             folium.plugins.Fullscreen(
                 position="topright",
                 title="Expand me",
                 title_cancel="Exit me",
                 force_separate_button=True,
             ).add_to(m)
+            folium.TileLayer('OpenStreetMap').add_to(m)
+            folium.LayerControl().add_to(m)
+
             # folium.plugins.LocateControl().add_to(m)
 
             # If you want get the user device position after load the map, set auto_start=True
