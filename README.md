@@ -1,3 +1,5 @@
+Map_Art_App\images\street_map_adjusted_Boston.png
+
 # Map Art App
 
 A Streamlit application that generates artistic map visualizations using OpenStreetMap data.
