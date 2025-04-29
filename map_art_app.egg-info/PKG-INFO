@@ -1,0 +1,29 @@
+Metadata-Version: 2.2
+Name: map_art_app
+Version: 0.1.0
+Summary: A Streamlit app for creating map art
+Home-page: https://github.com/yourusername/map_art_app
+Author: Miles Van Denburg
+Author-email: miles.vandenburg@gmail.com
+Keywords: streamlit,maps,art,visualization,osmnx
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Artistic Software
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.13
+Requires-Dist: streamlit>=1.30.0
+Requires-Dist: streamlit-folium>=0.15.0
+Requires-Dist: folium>=0.14.0
+Requires-Dist: osmnx>=1.6.0
+Requires-Dist: matplotlib>=3.8.0
+Requires-Dist: numpy>=1.26.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
