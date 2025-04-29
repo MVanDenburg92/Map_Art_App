@@ -276,7 +276,12 @@ def main():
                     st.session_state["location_name"] = ""    # Reset location name
                     st.rerun()
         with st.expander("Need help? Click to view tutorial"):
-            st.markdown("There are two ways to move the marker - 1. Click a spot on the map and then click the 'Move the Marker' button; or 2.  Double-Click twice on a spot on the map and the marker will move. Once you have your marker on the right spot feel free to customize your map using the options below.  There is no limit on how many maps you can make, so experiment and play around!")
+            st.markdown("""There are two ways to move the marker - 
+                         - 1. Click a spot on the map and then click the 'Move the Marker' button; or 
+                         - 2. Double-Click twice on a spot on the map and the marker will move. 
+                        
+                        Once you have your marker on the right spot feel free to customize your map using the options below.  
+                        There is no limit on how many maps you can make, so experiment and play around!""")
         bbox_size = st.slider("Bounding Box Size", 0.005, 0.05, 0.015, step=0.005)
         st.markdown("### Style Options")
         preset = st.selectbox("Apply a style preset?", ["None", "Minimal", "Bold", "Midnight"])
