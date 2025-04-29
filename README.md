@@ -2,7 +2,7 @@
 
 # Map Art App
 
-A Streamlit application that generates artistic map visualizations using OpenStreetMap data.  See below example for preview of what you can do!
+A Streamlit application that generates artistic map visualizations using OpenStreetMap data.  See below example for preview of what you can do!  Here's a link to the deployed app for your perusal as well! https://mapartapp.streamlit.app/
 
 <img src='images/street_map_adjusted_Boston.png'>
 
