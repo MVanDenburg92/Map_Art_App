@@ -152,6 +152,9 @@ def main():
     ox.settings.requests_kwargs = {'verify': False}
 
     # Create two columns for the sidebar and main content
+    with st.expander("Need help? Click to view tutorial"):
+    st.markdown("1. Do this... 2. Then that... 3. Done!")
+
     sidebar, main_content = st.columns([1, 3])
     with sidebar:
         # Input options
