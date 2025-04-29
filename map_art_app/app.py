@@ -157,13 +157,13 @@ def main():
         # Input options
         st.markdown("### Select Location")
 
-        input_method = st.radio("Choose your location input method:", ["Location Name", "Coordinates"])
+        input_method = st.radio("Choose your location input method:", ["Coordinates","Location Name"])
         
         # Store the previous input method to detect changes
-        input_method_changed = st.session_state.get("last_input_method") != input_method
+        # input_method_changed = st.session_state.get("last_input_method") != input_method
         st.session_state["last_input_method"] = input_method
         
-        use_place = input_method == "Coordinates"
+        use_place = input_method == "Location Name"
         
         if use_place:
             # Get current place name or default
