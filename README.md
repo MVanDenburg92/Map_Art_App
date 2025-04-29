@@ -1,4 +1,4 @@
-Map_Art_App\images\street_map_adjusted_Boston.png
+<img src='Map_Art_App\images\street_map_adjusted_Boston.png'>
 
 # Map Art App
 
