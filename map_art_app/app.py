@@ -163,7 +163,7 @@ def main():
         input_method_changed = st.session_state.get("last_input_method") != input_method
         st.session_state["last_input_method"] = input_method
         
-        use_place = input_method == "Location Name"
+        use_place = input_method == "Coordinates"
         
         if use_place:
             # Get current place name or default
